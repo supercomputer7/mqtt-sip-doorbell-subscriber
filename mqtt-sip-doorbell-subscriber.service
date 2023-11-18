@@ -1,0 +1,21 @@
+[Unit]
+Description=SIP Doorbell MQTT Subscriber
+
+After=network.target
+
+[Service]
+ExecStart=/opt/mqtt_sip_doorbell_subscriber/subscriber.py \ 
+          --mqtt-broker-ip MQTT_IP \
+          --mqtt-topic MQTT_TOPIC \
+          --mqtt-user MQTT_USER \
+          --mqtt-password MQTT_PASS \
+          --sip-gateway SIP_GATEWAY_IP \
+          --sip-user SIP_USER \
+          --sip-password SIP_PASSWORD \
+          --extension-number SIP_EXTENSION \
+          --sip-displayname SIP_DISPLAYNAME
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
