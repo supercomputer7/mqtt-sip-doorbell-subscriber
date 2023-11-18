@@ -45,3 +45,15 @@ sudo systemctl start mqtt-sip-doorbell-subscriber.service
 
 The `femtosip.py` code is subject to the GNU Affero General Public License.
 Anything else in the project is licensed under the MIT license
+
+## Personal note
+
+This is basically a relay between an MQTT subscribed notifications channel
+to initiating SIP calls. The original intent is for IoT home doorbell device which is created
+with an ESP32 MCU that sends notifications over the MQTT protocol, so it could trigger
+a SIP call to an extension (or maybe multiple extensions!) with this script which is running
+on another linux machine.
+
+However, it could be used for any other home automation that should initiate a SIP call,
+as you can imagine. If you find this useful in some way, then I am genuinely interested to hear what
+you do with this and how this code could be improved! :)
